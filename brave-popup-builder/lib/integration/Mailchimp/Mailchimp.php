@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_Mailchimp' ) ) {
    
    class BravePop_Mailchimp {
 
+      protected $api_key;
+      protected $dc;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

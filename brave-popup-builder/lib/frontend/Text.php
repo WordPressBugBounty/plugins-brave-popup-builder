@@ -5,6 +5,13 @@ if ( ! class_exists( 'BravePop_Element_Text' ) ) {
 
    class BravePop_Element_Text {
 
+      protected $data;
+      protected $popupID;
+      protected $stepIndex;
+      protected $elementIndex;
+      protected $goalItem;
+      protected $dynamicData;
+
       function __construct($data=null, $popupID=null, $stepIndex=0, $elementIndex=0, $device='desktop', $goalItem=false, $dynamicData=null) {
          $this->data = $data;
          $this->popupID = $popupID;

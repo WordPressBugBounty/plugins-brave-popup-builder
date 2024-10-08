@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_Klaviyo' ) ) {
    
    class BravePop_Klaviyo {
 
+      protected $api_key;
+      protected $site_id;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

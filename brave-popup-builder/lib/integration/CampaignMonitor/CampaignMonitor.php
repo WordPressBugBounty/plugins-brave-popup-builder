@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_CampaignMonitor' ) ) {
    
    class BravePop_CampaignMonitor {
 
+      protected $api_key;
+      protected $clientID;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

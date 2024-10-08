@@ -5,6 +5,13 @@ if ( ! class_exists( 'BravePop_Element_Code' ) ) {
 
    class BravePop_Element_Code {
 
+      protected $data;
+      protected $popupID;
+      protected $stepIndex;
+      protected $elementIndex;
+      protected $goalItem;
+      protected $code;
+
       function __construct($data=null, $popupID=null, $stepIndex=0, $elementIndex=0, $device='desktop', $goalItem=false) {
          $this->data = $data;
          $this->popupID = $popupID;
@@ -31,7 +38,7 @@ if ( ! class_exists( 'BravePop_Element_Code' ) ) {
             'code' => $default_attribs,
             'a' => array_merge(array('href' => true, 'target' => true, 'rel'=> true,), $default_attribs),
             'img' => array_merge(array( 'src' => true, 'alt' => true, 'width' => true , 'height' => true ), $default_attribs),
-            'iframe' => array_merge(array('src' => true, 'width'=> true, 'height'=> true, 'allowfullscreen' => true), $default_attribs),
+            'iframe' => array_merge(array('src' => true, 'width'=> true, 'height'=> true,'frameBorder'=> true, 'allowfullscreen' => true), $default_attribs),
          );
          
          $this->code = isset($this->data->code) ?  wp_kses( $this->data->code, $allowed_tags) : '';

@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_SendPulse' ) ) {
    
    class BravePop_SendPulse {
 
+      protected $api_key;
+      protected $api_secret;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

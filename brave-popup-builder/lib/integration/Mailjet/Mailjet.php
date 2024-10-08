@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_Mailjet' ) ) {
    
    class BravePop_Mailjet {
 
+      protected $api_key;
+      protected $secret;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

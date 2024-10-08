@@ -8,7 +8,48 @@
 if ( ! class_exists( 'BravePop_Popup' ) ) {
     class BravePop_Popup {
 
-         public $elementStyles; public $elementScripts;
+         public $elementStyles = array(); 
+         public $elementScripts = array();
+         protected $popupID;
+         protected $popupType;
+         protected $forceLoad;
+         protected $forceStep;
+         protected $popupData;
+         protected $animationData;
+         protected $advancedAnimation;
+         protected $hasAnimation;
+         protected $hasContAnim;
+         protected $hasDesktopEmbed;
+         protected $hasMobileEmbed;
+         protected $dynamicData;
+         protected $popupOrder;
+         protected $ajaxLoad;
+         protected $popupfonts = array();
+         protected $closeData = array();
+         protected $videoData = array();
+         protected $hasVideo = false;
+         protected $hasVimeo = false;
+         protected $hasYoutube = false;
+         protected $hasLoginElement = false;
+         protected $hasWpPosts = false;
+         protected $hasWpProducts = false;
+         protected $userTypeMatch = true;
+         protected $refererMatch = true;
+         protected $languageMatch = true;
+         protected $hasCartItems = true;
+         protected $countryMatch  = true;
+         protected $learnDashMatch = true;
+         protected $EDDMatch = true;
+         protected $cartFilterMatch = array(true,true,true,true,true);
+         protected $purchaseMatch = true;
+         protected $notpurchaseMatch = true;
+         protected $madePurchaseBeforeMatch = true;
+         protected $bodyClassMatch = true;
+         protected $utmMatch = true;
+         protected $utmNegativeMatch = true;
+         protected $timers = array();
+
+         
 
         function __construct($popupID=null, $popupType='popup', $forceLoad=false, $forceStep=false, $customContent=false ) {
                $this->popupID = $popupID;
@@ -16,37 +57,12 @@ if ( ! class_exists( 'BravePop_Popup' ) ) {
                if($customContent === false && !get_post_meta($popupID, 'popup_data', true)) { return; }
                $this->forceLoad = $forceLoad;
                $this->forceStep = $forceStep;
-               $this->elementStyles = array();
-               $this->elementScripts = array();
                $this->popupData = $customContent ? json_decode($customContent) : json_decode(get_post_meta($popupID, 'popup_data', true));
-               $this->popupfonts = array();
-               $this->closeData = array();
                $preparedAnimation = bravepop_prepare_animation($this->popupData);
                $this->animationData = $preparedAnimation['animationData'];
                $this->advancedAnimation = $preparedAnimation['advancedAnimation'];
                $this->hasAnimation = $preparedAnimation['hasAnimation'];
                $this->hasContAnim = $preparedAnimation['hasContAnim'];
-               $this->videoData = array();
-               $this->hasVideo = false;
-               $this->hasVimeo = false;
-               $this->hasYoutube = false;
-               $this->hasLoginElement = false;
-               $this->hasWpPosts = false;
-               $this->hasWpProducts = false;
-               $this->userTypeMatch = true;
-               $this->refererMatch = true;
-               $this->languageMatch = true;
-               $this->hasCartItems = true;
-               $this->countryMatch  = true;
-               $this->learnDashMatch = true;
-               $this->EDDMatch = true;
-               $this->cartFilterMatch = array(true,true,true,true,true);
-               $this->purchaseMatch = true;
-               $this->notpurchaseMatch = true;
-               $this->madePurchaseBeforeMatch = true;
-               $this->bodyClassMatch = true;
-               $this->utmMatch = true;
-               $this->utmNegativeMatch = true;
                $this->hasDesktopEmbed = $popupType === 'content' ? true : false;
                $this->hasMobileEmbed = $popupType === 'content' ? true : false;
                $this->dynamicData = $this->popup_get_dynamicData();

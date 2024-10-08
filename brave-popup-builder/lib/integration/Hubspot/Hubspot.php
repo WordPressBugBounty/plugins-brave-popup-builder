@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_Hubspot' ) ) {
 
    class BravePop_Hubspot {
 
+      protected $api_key;
+      protected $isAccessToken;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

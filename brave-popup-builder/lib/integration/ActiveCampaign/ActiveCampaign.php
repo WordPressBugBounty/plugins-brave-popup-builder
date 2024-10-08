@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_ActiveCampaign' ) ) {
    
    class BravePop_ActiveCampaign {
 
+      protected $api_key;
+      protected $api_url;
+
       function __construct() {
 
          $braveSettings = get_option('_bravepopup_settings');

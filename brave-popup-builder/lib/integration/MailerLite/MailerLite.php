@@ -3,6 +3,10 @@ if ( ! class_exists( 'BravePop_MailerLite' ) ) {
    
    class BravePop_MailerLite {
 
+      protected $api_key;
+      protected $versionTwo;
+      protected $apiURL;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

@@ -4,6 +4,12 @@ if ( ! class_exists( 'BravePop_Element_Products' ) ) {
    
 
    class BravePop_Element_Products {
+
+      protected $data;
+      protected $popupID;
+      protected $stepIndex;
+      protected $elementIndex;
+      protected $goalItem;
       
       function __construct($data=null, $popupID=null, $stepIndex=0, $elementIndex=0, $device='desktop', $goalItem=false) {
          $this->data = $data;

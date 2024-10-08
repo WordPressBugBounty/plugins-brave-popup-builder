@@ -5,6 +5,32 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
 
    class BravePop_Element_Form {
 
+      protected $data;
+      protected $popupID;
+      protected $stepIndex;
+      protected $elementIndex;
+      protected $device;
+      protected $nolabel;
+      protected $ratingStyles = '';
+      protected $hasDate = false;
+      protected $totalSteps = 0;
+      protected $changesFormHeight = false;
+      protected $recaptcha = false;
+      protected $formHeightData;
+      protected $wrappedSteps = 1;
+      protected $goalItem;
+      protected $buttonGroupStyles = '';
+      protected $consentField;
+      protected $currentUser;
+      protected $formDataIntercepted;
+      protected $formData;
+      protected $conditionedFields;
+      protected $formFields;
+      protected $social_optin;
+      protected $takeConsent;
+      protected $disabelStar;
+      protected $social_settings;
+
       function __construct($data=null, $popupID=null, $stepIndex=0, $elementIndex=0, $device='desktop', $goalItem=false) {
          $this->data = $data;
          $this->popupID = $popupID;
@@ -12,16 +38,8 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
          $this->elementIndex = $elementIndex;
          $this->device = $device;
          $this->nolabel = $this->has_noLabel();
-         $this->ratingStyles = '';
-         $this->hasDate = false;
-         $this->totalSteps = 0;
-         $this->changesFormHeight = false;
-         $this->recaptcha = false;
          $this->formHeightData = array(isset($data->height) ? $data->height : '');
-         $this->wrappedSteps = 1;
          $this->goalItem = $goalItem;
-         $this->buttonGroupStyles = '';
-         $this->consentField = '';
          $this->currentUser = bravepop_getCurrentUser();
          $this->formDataIntercepted = do_action( 'bravepop_form_element_data', $this->data->formData, $popupID, $this->data->id );
          $this->formData = $this->formDataIntercepted ? $this->formDataIntercepted : $this->data->formData;

@@ -3,6 +3,9 @@ if ( ! class_exists( 'BravePop_Sendy' ) ) {
 
    class BravePop_Sendy {
 
+      protected $api_key;
+      protected $api_url;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

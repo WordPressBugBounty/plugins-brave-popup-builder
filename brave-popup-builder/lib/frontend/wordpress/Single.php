@@ -5,6 +5,11 @@ if ( ! class_exists( 'BravePop_Element_Single' ) ) {
 
    class BravePop_Element_Single {
 
+      protected $data;
+      protected $popupID;
+      protected $stepIndex;
+      protected $elementIndex;
+
       function __construct($data=null, $popupID=null, $stepIndex=0, $elementIndex=0) {
          $this->data = $data;
          $this->popupID = $popupID;
@@ -31,7 +36,7 @@ if ( ! class_exists( 'BravePop_Element_Single' ) ) {
          $infoColor = 'color: rgba('.$infoColorRGB.', '.$infoColorOpacity.');';
 
          $titleSize = isset($this->data->titleSize) ?   'font-size: '.$this->data->titleSize.'px;' : '';
-         $titlefontFamily = isset($this->data->titlefontFamily) && $this->data->titlefontFamily !== 'None' ?  'font-family: '.$this->data->titlefontFamily.';' : '';
+         $titleFontFamily = isset($this->data->titlefontFamily) && $this->data->titlefontFamily !== 'None' ?  'font-family: '.$this->data->titlefontFamily.';' : '';
          $titlefontBold = isset($this->data->titlefontVariation) && $this->data->titlefontVariation !== 'regular' ?  'font-weight: '.str_replace('italic','', $this->data->titlefontVariation).';' : '';
          $titlefontItalic = ( (isset($this->data->titlefontVariation) && strpos($this->data->titlefontVariation, 'italic') !== false)) ? 'font-style: italic;' : '';
          $titleColorRGB = isset($this->data->titleColor) && isset($this->data->titleColor->rgb) ? $this->data->titleColor->rgb :'109, 120, 216';

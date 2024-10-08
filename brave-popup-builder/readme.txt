@@ -3,8 +3,8 @@ Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
 Tested up to: 6.6.2
-Stable tag: 0.7.3
-Requires PHP: 5.6.20
+Stable tag: 0.7.4
+Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -118,6 +118,10 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.7.4 - 08 Oct 2024. =
+* Added: PHP 8.2+ Compatibility.
+
+
 = 0.7.3 - 23 Sep 2024. =
 * Added: Sender.net Integration
 * Fixed: Minor bug fixes.

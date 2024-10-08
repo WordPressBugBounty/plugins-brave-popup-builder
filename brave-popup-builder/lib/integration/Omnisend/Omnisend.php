@@ -3,6 +3,8 @@ if ( ! class_exists( 'BravePop_Omnisend' ) ) {
    
    class BravePop_Omnisend {
 
+      protected $api_key;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

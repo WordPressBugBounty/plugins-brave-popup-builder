@@ -3,6 +3,8 @@ if ( ! class_exists( 'BravePop_Pabbly' ) ) {
    
    class BravePop_Pabbly {
 
+      protected $api_key;
+
       function __construct() {
          $braveSettings = get_option('_bravepopup_settings');
          $integrations = $braveSettings && isset($braveSettings['integrations']) ? $braveSettings['integrations'] : array() ;

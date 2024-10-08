@@ -3,6 +3,8 @@ if ( ! class_exists( 'BravePop_MailPoet' ) ) {
 
    class BravePop_MailPoet {
 
+      protected $api_key;
+
       function __construct() {
          $this->api_key = class_exists(\MailPoet\API\API::class)  ? \MailPoet\API\API::MP('v1') : '';
       }
