@@ -23,27 +23,41 @@ if ( ! class_exists( 'BravePop_ConvertKit' ) ) {
             ),
          );
 
-         $response = wp_remote_get( 'https://api.convertkit.com/v3/forms?api_key='.$apiKey, $args );
+         $lists = [];
+         $formsResponse = wp_remote_get( 'https://api.convertkit.com/v3/forms?api_key='.$apiKey, $args );
 
-         if( is_wp_error( $response ) ) {
-            return false; // Bail early
+         if( !is_wp_error( $formsResponse ) ) {
+            $body = wp_remote_retrieve_body( $formsResponse );
+            $formsData = json_decode( $body );
+            if($formsData && isset($formsData->forms)){
+               $lists = $formsData->forms;
+            }
          }
-         $body = wp_remote_retrieve_body( $response );
-         $data = json_decode( $body );
+
+         $seqResponse = wp_remote_get( 'https://api.convertkit.com/v3/sequences?api_key='.$apiKey, $args );
+
+         if( !is_wp_error( $seqResponse ) ) {
+            $body = wp_remote_retrieve_body( $seqResponse );
+            $seqData = json_decode( $body );
+            if($seqData && isset($seqData->courses)){
+               foreach($seqData->courses as $sequence) {
+                  $sequence->id = 'SEQ_' . $sequence->id;
+                  $sequence->name = '[SEQ] ' . $sequence->name;
+               }
+               $lists = array_merge($lists,$seqData->courses) ;
+            }
+         }
 
 
-         if($data && isset($data->forms)){
-            $lists = $data->forms;
+         if($lists && is_array($lists) && count($lists) > 0){
             $finalLists = array();
-            if($lists && is_array($lists)){
                foreach ($lists as $key => $list) {
                   $listItem = new stdClass();
                   $listItem->id = isset($list->id) ? $list->id : '';
                   $listItem->name = isset($list->name) ? $list->name : '';
-                  $listItem->count = isset($list->SubscriberCount)  ? $list->SubscriberCount : 0;
+                  $listItem->count = isset($list->subscriber_count)  ? $list->subscriber_count : 0;
                   $finalLists[] = $listItem;
                }
-            }
             //error_log(wp_json_encode($finalLists));
             return wp_json_encode($finalLists);
          }else{
@@ -51,8 +65,6 @@ if ( ! class_exists( 'BravePop_ConvertKit' ) ) {
          }
 
       }
-
-
       public function add_to_lists($email, $list_id, $fname='', $lname='', $phone='', $customFields=array(), $tags=array(), $userData=array()){
          if(!$email || !$list_id){ return null; }
          if(!$this->api_key){ 
@@ -97,8 +109,14 @@ if ( ! class_exists( 'BravePop_ConvertKit' ) ) {
             'body' => wp_json_encode($contact)
          );
          //https://developers.convertkit.com/#add-subscriber-to-a-form
-         $response = wp_remote_post( 'https://api.convertkit.com/v3/forms/' . $list_id . '/subscribe', $args );
-         
+         $API_URL = 'https://api.convertkit.com/v3/forms/' . $list_id . '/subscribe';
+
+         if(strpos($list_id, 'SEQ_') !== false){
+            $API_URL = 'https://api.convertkit.com/v3/sequences/' . str_replace('SEQ_', '', $list_id) . '/subscribe';
+         }
+
+         $response = wp_remote_post( $API_URL, $args );
+         error_log('$formsResponse: '.json_encode($response));
 
          $body = wp_remote_retrieve_body( $response );
          $data = json_decode( $body );

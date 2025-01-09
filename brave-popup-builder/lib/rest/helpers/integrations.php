@@ -357,7 +357,6 @@ function bravepop_add_to_newsletter($actionType='form', $type='', $emailValue=''
       if(function_exists('bravepop_external_integration_add_contact')){
          $service =  bravepop_external_integration_add_contact($type);
       }
-      error_log('bravepop_add_to_newsletter!!!');
       if(isset($service)){
          // error_log('bravepop_add_to_newsletter!!!');
          $userSync = array('enabled' => false);

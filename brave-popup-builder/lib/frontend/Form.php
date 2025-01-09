@@ -267,6 +267,7 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
          $formStyle = isset($this->formData->settings->style) ? $this->formData->settings->style : null;
          $buttonStyle = isset($this->formData->settings->button) ? $this->formData->settings->button : null;
          $theFormFields = isset($this->formFields) ? $this->formFields : array();
+         $visibleFields = array_filter($theFormFields, function($field) {  return $field->type !== 'hidden'; });
 
          //Form
          $fontSize = bravepop_generate_style_props(isset($formStyle->fontSize) ? $formStyle->fontSize : 12, 'font-size');
@@ -297,7 +298,7 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
          $borderSize = isset($formStyle->borderSize) ?  'border-width: '.$formStyle->borderSize.'px;' : 'border-width: 1px;';
          $spacing = isset($formStyle->spacing) ?  'margin: '.((isset($formStyle->spacing) ? $formStyle->spacing : 15)/2).'px 0px;' : 'margin: 7.5px 0px;';
          $lineHeight = isset($formStyle->lineHeight) ? 'line-height: '.$formStyle->lineHeight.'px;':'line-height: 18px;';
-         $fielsdWidth = isset($formStyle->inline) && $formStyle->inline ?  'width: '.(100/count($theFormFields)).'%;' : '';
+         $fielsdWidth = isset($formStyle->inline) && $formStyle->inline ?  'width: '.(100/count($visibleFields)).'%;' : '';
          $innerSpacing = isset($formStyle->innerSpacing) ?  'padding: '.$formStyle->innerSpacing.'px;' : 'padding: 12px;';
 
          //Button
@@ -420,22 +421,22 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
       protected function renderHidden($field){
          $defaultValue = '';  $userIP = bravepop_getVisitorIP();
          global $bravepop_global;
-         if(isset($field->defaultType) && $field->defaultType === 'static' && !empty($field->defaultValue) ){ $defaultValue = 'value="'.$field->defaultValue.'"';  }
-         if(isset($field->defaultType) && $field->defaultType === 'utm' && !empty($field->defaultValue) && isset($_GET[$field->defaultValue]) ){ $defaultValue = 'value="'.$_GET[$field->defaultValue].'"';  }
-         if(isset($field->defaultType) && $field->defaultType === 'country' && !empty($bravepop_global['user_country']) ){ $defaultValue = 'value="'.$bravepop_global['user_country'].'"';  }
-         if(isset($field->defaultType) && $field->defaultType === 'ip' && $userIP ){ $defaultValue = 'value="'.$userIP.'"';  }
-         if(isset($field->defaultType) && $field->defaultType === 'user_email' && !empty($this->currentUser['email']) ){ $defaultValue = 'value="'.$this->currentUser['email'].'"';  }
-         if(isset($field->defaultType) && $field->defaultType === 'user_name' && !empty($this->currentUser['name']) ){ $defaultValue = 'value="'.$this->currentUser['name'].'"';  }
-         if(isset($field->defaultType) && $field->defaultType === 'language' ){ $defaultValue = 'value="'.bravepop_get_curent_lang().'"';  }
+         if(isset($field->defaultType) && $field->defaultType === 'static' && !empty($field->defaultValue) ){ $defaultValue = $field->defaultValue;  }
+         if(isset($field->defaultType) && $field->defaultType === 'utm' && !empty($field->defaultValue) && isset($_GET[$field->defaultValue]) ){ $defaultValue = $_GET[$field->defaultValue];  }
+         if(isset($field->defaultType) && $field->defaultType === 'country' && !empty($bravepop_global['user_country']) ){ $defaultValue = $bravepop_global['user_country'];  }
+         if(isset($field->defaultType) && $field->defaultType === 'ip' && $userIP ){ $defaultValue = $userIP;  }
+         if(isset($field->defaultType) && $field->defaultType === 'user_email' && !empty($this->currentUser['email']) ){ $defaultValue = $this->currentUser['email'];  }
+         if(isset($field->defaultType) && $field->defaultType === 'user_name' && !empty($this->currentUser['name']) ){ $defaultValue = $this->currentUser['name'];  }
+         if(isset($field->defaultType) && $field->defaultType === 'language' ){ $defaultValue = bravepop_get_curent_lang();  }
          if(isset($field->defaultType) && $field->defaultType === 'pagetitle' ){
             global $wp_query;
             if(isset($wp_query) && isset($wp_query->post) && isset($wp_query->post->post_title)){
-               $defaultValue = 'value="'.$wp_query->post->post_title.'"';  
+               $defaultValue = $wp_query->post->post_title;  
             }
          }
 
          $fieldHTML = '<div id="brave_form_field'.$field->id.'" class="brave_form_field brave_form_field--hidden">';
-            $fieldHTML .= '<input type="hidden"  name="'.esc_attr($field->id).'" '.($defaultValue).' />';
+            $fieldHTML .= '<input type="hidden"  name="'.esc_attr($field->id).'" value="'.do_shortcode($defaultValue).'" />';
          $fieldHTML .= '</div>';
 
         return  $fieldHTML;

@@ -3,7 +3,7 @@ Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
 Tested up to: 6.6.2
-Stable tag: 0.7.5
+Stable tag: 0.7.6
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -118,6 +118,14 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.7.6 - 09 Jan 2025. =
+* Fixed: Warning messages in PHP 8.2.
+* Fixed: Incorrect Inline form fields width when form has hidden fields.
+* Added: Not all ActiveCampaign tags were being loaded in the backend.
+* Added: Ability to add contacts to Convertkit Sequences.
+* Added: Allow Shortcodes in hidden Form fields.
+
+
 = 0.7.5 - 09 Sep 2024. =
 * Fixed: Embedded Content Crashed pages after the latest update.
 

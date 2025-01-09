@@ -563,19 +563,19 @@ msgid "Creating ..."
 msgstr ""
 
 #: src/admin/popups/CreatePopup.js:329
-#: src/admin/popups/Presets/Presets.js:199
+#: src/admin/popups/Presets/Presets.js:200
 #: src/admin/popups/editor/PopupEditor.js:424
 msgid "Live Preview"
 msgstr ""
 
 #: src/admin/popups/CreatePopup.js:334
-#: src/admin/popups/Presets/Presets.js:204
+#: src/admin/popups/Presets/Presets.js:205
 msgid "No Preview Found..."
 msgstr ""
 
 #: src/admin/popups/CreatePopup.js:339
 #: src/admin/popups/FormBuilder/FormFieldsEditor.js:903
-#: src/admin/popups/Presets/Presets.js:209
+#: src/admin/popups/Presets/Presets.js:210
 #: src/admin/popups/editor/ImportExport.js:100
 #: src/admin/popups/editor/PopupGoal.js:223
 #: src/admin/popups/editor/StepsHeader.js:58
@@ -584,7 +584,7 @@ msgid "Step"
 msgstr ""
 
 #: src/admin/popups/CreatePopup.js:345
-#: src/admin/popups/Presets/Presets.js:215
+#: src/admin/popups/Presets/Presets.js:216
 msgid "Close Preview"
 msgstr ""
 
@@ -2272,59 +2272,59 @@ msgstr ""
 msgid "Overwrite"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:104
+#: src/admin/popups/Presets/Presets.js:105
 #: src/admin/popups/Presets/UserPresets.js:64
 #: src/admin/popups/editor/ImportExport.js:118
 msgid "Import"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:128
+#: src/admin/popups/Presets/Presets.js:129
 msgid "All Presets"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:128
+#: src/admin/popups/Presets/Presets.js:129
 #: src/admin/popups/editor/fields/FontPicker.js:150
 #: src/admin/popups/editor/visibility/PlacementSettings.js:116
 msgid "All"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:133
+#: src/admin/popups/Presets/Presets.js:134
 #: src/admin/popups/editor/PopupDesign.js:96
 msgid "Presets"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:138
-#: src/admin/popups/editor/fields/MediaPicker.js:235
+#: src/admin/popups/Presets/Presets.js:139
+#: src/admin/popups/editor/fields/MediaPicker.js:236
 msgid "Library"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:139
+#: src/admin/popups/Presets/Presets.js:140
 #: src/admin/popups/Presets/presetData.js:25
 #: src/admin/popups/editor/fields/FontPicker.js:151
 msgid "Custom"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:184
+#: src/admin/popups/Presets/Presets.js:185
 msgid "Importing Preset..."
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:189
+#: src/admin/popups/Presets/Presets.js:190
 msgid "Are you sure you want to Import this Preset?"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:190
+#: src/admin/popups/Presets/Presets.js:191
 msgid "Your Current Popup content will be replaced with this preset."
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:190
+#: src/admin/popups/Presets/Presets.js:191
 msgid "This Preset will add"
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:190
+#: src/admin/popups/Presets/Presets.js:191
 msgid "Steps to current popup."
 msgstr ""
 
-#: src/admin/popups/Presets/Presets.js:58
+#: src/admin/popups/Presets/Presets.js:59
 msgid "Preset Successfully Imported!"
 msgstr ""
 
@@ -4575,11 +4575,11 @@ msgstr ""
 msgid "Regular"
 msgstr ""
 
-#: src/admin/popups/editor/fields/IconPicker.js:107
+#: src/admin/popups/editor/fields/IconPicker.js:108
 msgid "Upgrade to PRO to Search from 30k Icons"
 msgstr ""
 
-#: src/admin/popups/editor/fields/IconPicker.js:37
+#: src/admin/popups/editor/fields/IconPicker.js:38
 msgid "No Icons Found!"
 msgstr ""
 
@@ -4591,77 +4591,77 @@ msgstr ""
 msgid "Select layout"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:109
+#: src/admin/popups/editor/fields/MediaPicker.js:110
 #: src/admin/popups/utils/elementlist.js:12
 msgid "Video"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:109
+#: src/admin/popups/editor/fields/MediaPicker.js:110
 #: src/admin/popups/utils/elementlist.js:7
 msgid "Image"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:111
+#: src/admin/popups/editor/fields/MediaPicker.js:112
 msgid "Upload "
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:112
+#: src/admin/popups/editor/fields/MediaPicker.js:113
 msgid "Select "
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:223
+#: src/admin/popups/editor/fields/MediaPicker.js:224
 msgid "Media Library"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:237
+#: src/admin/popups/editor/fields/MediaPicker.js:238
 msgid "Online"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:260
+#: src/admin/popups/editor/fields/MediaPicker.js:261
 msgid "Search from Millions of Photos."
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:261
+#: src/admin/popups/editor/fields/MediaPicker.js:262
 msgid "Please Activate Your License to Search Online Images."
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:262
+#: src/admin/popups/editor/fields/MediaPicker.js:263
 msgid "Searching..."
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:290
+#: src/admin/popups/editor/fields/MediaPicker.js:291
 msgid "Photos"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:291
+#: src/admin/popups/editor/fields/MediaPicker.js:292
 msgid "Illustrations"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:292
+#: src/admin/popups/editor/fields/MediaPicker.js:293
 msgid "Gifs"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:297
+#: src/admin/popups/editor/fields/MediaPicker.js:298
 msgid ""
 "Upgrade to PRO to Search and Import from Thousands of Free Videos from "
 "Pixabay"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:297
+#: src/admin/popups/editor/fields/MediaPicker.js:298
 msgid ""
 "Upgrade to PRO to Search and Import from Millions of Free Images from "
 "Pixabay/Giphy"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:307
+#: src/admin/popups/editor/fields/MediaPicker.js:308
 msgid "No Images Found"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:310
+#: src/admin/popups/editor/fields/MediaPicker.js:311
 msgid "Reload"
 msgstr ""
 
-#: src/admin/popups/editor/fields/MediaPicker.js:317
+#: src/admin/popups/editor/fields/MediaPicker.js:318
 msgid "Upload"
 msgstr ""
 
@@ -5458,27 +5458,27 @@ msgstr ""
 msgid "Did not Purchase:  "
 msgstr ""
 
-#: src/admin/popups/helpers.js:259
+#: src/admin/popups/helpers.js:261
 msgid "Display Conditional Message based on Quiz Result"
 msgstr ""
 
-#: src/admin/popups/helpers.js:263
+#: src/admin/popups/helpers.js:265
 msgid "Total Score Achieved by User"
 msgstr ""
 
-#: src/admin/popups/helpers.js:263
+#: src/admin/popups/helpers.js:265
 msgid "Total Available Score"
 msgstr ""
 
-#: src/admin/popups/helpers.js:266
+#: src/admin/popups/helpers.js:268
 msgid "Number of Total Correct Answers by User"
 msgstr ""
 
-#: src/admin/popups/helpers.js:266
+#: src/admin/popups/helpers.js:268
 msgid "Number of Total Questions"
 msgstr ""
 
-#: src/admin/popups/helpers.js:275
+#: src/admin/popups/helpers.js:277
 msgid "Display Conditional Message based on Field Value"
 msgstr ""
 
