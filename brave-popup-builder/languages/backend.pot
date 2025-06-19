@@ -277,7 +277,7 @@ msgstr ""
 
 #: src/admin/popups/AllPopups.js:588
 #: src/admin/popups/Analytics.js:382
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:323
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:324
 #: src/admin/popups/Integrations/CaptchaIntegration.js:91
 #: src/admin/popups/Integrations/SocialIntegrations.js:119
 #: src/admin/popups/Integrations/ValidationIntegrations.js:165
@@ -1026,7 +1026,7 @@ msgid "This Field is shown based on conditions"
 msgstr ""
 
 #: src/admin/popups/FormBuilder/FormFieldsEditor.js:953
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:210
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:211
 #: src/admin/popups/FormBuilder/settings/FormActionRecievemail.js:103
 #: src/admin/popups/FormBuilder/settings/FormActionSendmail.js:206
 #: src/admin/popups/FormBuilder/settings/FormActionSettings.js:347
@@ -1339,112 +1339,112 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:151
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:152
 msgid "Add User to Newsletter"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:161
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:162
 msgid ""
 "You have not Integrated a Newsletter Service Yet. Please do so, from Brave "
 "> Integrations and then refresh this page."
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:166
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:167
 #: src/admin/popups/FormBuilder/settings/FormActionSendmail.js:198
 msgid ""
 "Your Form Does not have an Email Input Field. To activate this Option, "
 "Please add an Input Field and then set the Field type Option to \"Email\"."
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:174
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:175
 msgid "Newsletter Service"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:183
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:184
 msgid "Loading Lists.. "
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:186
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:187
 msgid "Error Loading Lists!"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:193
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:194
 msgid "Convertkit Form"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:193
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:194
 msgid "Newsletter List"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:195
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:196
 msgid "Newsletter Lists"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:204
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:205
 msgid "Sendy List ID"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:210
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:211
 msgid "Get Email From"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:212
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:213
 msgid "Email Fields"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:222
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:223
 msgid "Get Name From"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:234
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:235
 msgid "Get Phone Number From"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:236
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:237
 msgid "All Input Fields"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:248
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:249
 msgid "Only Add if a Checkbox is Checked"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:257
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:258
 msgid "Select Checkbox"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:259
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:260
 msgid "All Checkbox Fields"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:267
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:268
 msgid "No Checkbox Fields Found in your Form!"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:282
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:283
 msgid "Email Template ID*"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:286
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:287
 msgid "Redirect URL After Optin*"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:293
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:294
 msgid "Autoresponder Day"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:308
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:309
 msgid "Advanced Mode"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:317
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:318
 msgid "Newsletter Signup Settings"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:317
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:318
 msgid "(Locked! Activate License)"
 msgstr ""
 
-#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:323
+#: src/admin/popups/FormBuilder/settings/FormActionNewsletter.js:324
 msgid ""
 "to Save Subscribers in Database, Sync More Fields, Tag Subscriber, "
 "Subscribe visitors to different lists based on conditions & Prevent "
@@ -1865,32 +1865,32 @@ msgstr ""
 msgid "Send Sample Data"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:224
+#: src/admin/popups/Integrations.js:226
 msgid "Integrations"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:228
+#: src/admin/popups/Integrations.js:230
 msgid "EMS"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:229
+#: src/admin/popups/Integrations.js:231
 #: src/admin/popups/utils/elementlist.js:22
 msgid "Social"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:230
+#: src/admin/popups/Integrations.js:232
 msgid "reCAPTCHA"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:231
+#: src/admin/popups/Integrations.js:233
 msgid "Email Validation"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:284
+#: src/admin/popups/Integrations.js:286
 msgid "Remove This Integraion"
 msgstr ""
 
-#: src/admin/popups/Integrations.js:285
+#: src/admin/popups/Integrations.js:287
 msgid "Are you sure you want to remove this Integraion?"
 msgstr ""
 

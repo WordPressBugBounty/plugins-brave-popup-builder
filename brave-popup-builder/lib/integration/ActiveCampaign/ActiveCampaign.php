@@ -145,7 +145,7 @@ if ( ! class_exists( 'BravePop_ActiveCampaign' ) ) {
                do_action( 'bravepop_addded_to_list', 'activecampaign', $addedData );
             }
 
-            if(is_wp_error( $listresponse ) === false){
+            if(is_wp_error( $listresponse ) === false && isset($listdata->contacts)){
                return $listdata->contacts; 
             }else{
                return false;

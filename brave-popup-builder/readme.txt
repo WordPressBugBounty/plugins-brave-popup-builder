@@ -2,8 +2,8 @@
 Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
-Tested up to: 6.6.2
-Stable tag: 0.7.6
+Tested up to: 6.8.1
+Stable tag: 0.7.7
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=sBvZR7P8Ml0
 * **Animate Popups** - Add Animations to your Popups from list of ready-made animation list. 
 * **Insert Custom Code** - You can display your favorite plugin's content by adding shortcodes or Custom Codes inside a Code element.
 * **15 Started Presets** - The free version comes with 15 free presets that you can import and customize to build popups within seconds.
-* **23 Newsletter Service Integrations** - Creating eye-catching optin-forms by connecting your Forms to Mailchimp, Mailjet, MailPoet, SendGrid, SendinBlue, Hubspot, Active Campaign, AWeber, ConvertKit, Constant Contact, Campaign Monitor, GetResponse, Mailer Lite, Ontraport, SendPulse, Moosend, Zapier, The Newsletter Plugin, Pabbly, Klaviyo, FluentCRM, Sendy, OmniSend and Mailster.
+* **23 Newsletter Service Integrations** - Creating eye-catching optin-forms by connecting your Forms to Mailchimp, Mailjet, MailPoet, SendGrid, SendinBlue, Hubspot, Active Campaign, AWeber, ConvertKit, Constant Contact, Campaign Monitor, GetResponse, Mailer Lite, Ontraport, SendPulse, Moosend, Zapier, The Newsletter Plugin, Pabbly, Klaviyo, FluentCRM, Sendy, OmniSend, MailWizz and Mailster.
 * **Great Performance** - Unlike other popup's Brave does not load bunch of scripts to your site. It was built with Performance in mind. Brave Popups are very lightweight and only loads assets after the page is fully loaded. 
 * **Analytics** -  Easily find out which popups are bringing in the most conversions. Brave tracks how many times a Popup is viewed and how many times the Popup is clicked or Form is submitted. 
 
@@ -118,6 +118,10 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.7.7 - 19 Jun 2025. =
+* Added: MailWizz Integration.
+
+
 = 0.7.6 - 09 Jan 2025. =
 * Fixed: Warning messages in PHP 8.2.
 * Fixed: Incorrect Inline form fields width when form has hidden fields.
