@@ -401,7 +401,7 @@ function bravepop_newsletter_misc_settings($service, $newsletterSettings, $formF
 }
 
 
-function bravepop_subscription_failed_notificaion($popupID, $emailAddress, $service, $fullName, $subEmailAddress){
+function bravepop_subscription_failed_notificaion($popupID, $emailAddress, $service, $fullName, $subEmailAddress, $subScriptionRes=false){
    if(!$popupID || !$emailAddress || !$subEmailAddress || !$service){ return false; }
    $firstname = $fullName ? $fullName : ''; $lastname = '';
    if(( strpos($fullName, ' ') !== false)){
@@ -410,12 +410,17 @@ function bravepop_subscription_failed_notificaion($popupID, $emailAddress, $serv
       $lastname = $fullname_parts[1] ? $fullname_parts[1] : '';
    }
    $popupName = get_the_title($popupID);
+   $apiErroMsg = $subScriptionRes && isset($subScriptionRes['errorMsg']) ? 'Error Message:'.$subScriptionRes['errorMsg'] : 'Unknown. Probably due to '.$service.' API issues, incomplete data or other reasons';
    //error_log($popupName .' '. $emailAddress .' '. $subEmailAddress .' '. $service);
    if($popupName && $emailAddress && $subEmailAddress && $service){
       $sendto =  $emailAddress;
       $subject = '[Brave][Error] Newsletter Subscription Failed';
       $headers = "Content-Type: text/plain; charset=\"iso-8859-1\"";
-      $theMessage = "Hi,\r\n\r\nYour Brave Campaign '".$popupName."' failed to subscribe a visitor to your Newsletter mailing list (Due to ".$service." API issues, incomplete data or other reasons).\r\nPlease add the visitor to your list manually from your ".$service." Dashboard:  \r\n\r\nFirst Name: ".($firstname ? $firstname: 'Not Given')."\r\nLast Name: ".($lastname ? $lastname: 'Not Given')."\r\nEmail Address: ".$subEmailAddress."\r\n\r\nMessage Sent By Brave Plugin.\r\n".get_bloginfo( 'name' )."";
-      wp_mail( $sendto, $subject, $theMessage, $headers);
+      $theMessage = "Hi,\r\n\r\nYour Brave Campaign '".$popupName."' failed to subscribe a visitor to your Newsletter mailing list.\r\nReason: ".$apiErroMsg."\r\n\r\nPlease add the visitor to your list manually from your ".$service." Dashboard:  \r\n\r\nFirst Name: ".($firstname ? $firstname: 'Not Given')."\r\nLast Name: ".($lastname ? $lastname: 'Not Given')."\r\nEmail Address: ".$subEmailAddress."\r\n\r\nMessage Sent By Brave Plugin.\r\n".get_bloginfo( 'name' )."";
+      $result =  wp_mail( $sendto, $subject, $theMessage, $headers);
+      return $result;
+   }else{
+      return false;
+
    }
 }

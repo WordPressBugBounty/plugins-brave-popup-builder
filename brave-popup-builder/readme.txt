@@ -2,8 +2,8 @@
 Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
-Tested up to: 6.8.1
-Stable tag: 0.7.7
+Tested up to: 6.8.2
+Stable tag: 0.8.0
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -118,6 +118,12 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.8.0 - 28 Jul 2025. =
+* Added: Get Error details of Newsletter subscription error in the admin notification email. 
+* Added: Display error message to visitor when Newsletter subscription fails.
+
+
+
 = 0.7.7 - 19 Jun 2025. =
 * Added: MailWizz Integration.
 

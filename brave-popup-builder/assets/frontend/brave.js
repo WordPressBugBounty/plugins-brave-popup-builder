@@ -552,8 +552,13 @@ function brave_submit_form(event, settings, supressErrors=false){
             var response = JSON.parse(sentData);
             console.log(status, response);
 
-            if(response.error &&  typeof response.error === 'string'){
-               return alert(response.error);
+            if(response.error && typeof response.error === 'string'){
+               return brave_lightbox_open(null, 'html', response.error)
+            }
+
+            if(response.subscribed === false && response.subscriptionError && typeof response.subscriptionError === 'string'){
+               // return alert(response.subscriptionError);
+               return brave_lightbox_open(null, 'html', response.subscriptionError)
             }
 
             localStorage.setItem('brave_popup_'+settings.popupID+'_formsubmitted', true);
@@ -2058,12 +2063,23 @@ function brave_tooltip_close(){
 }
 
 function brave_lightbox_open(elementID, contentType, content){
-   var bravelightbox = document.getElementById('bravepop_element_lightbox');  var bravelightboxContent = document.getElementById('bravepop_element_lightbox_content'); 
+   var bravelightbox = document.getElementById('bravepop_element_lightbox');  
+   var bravelightboxContent = document.getElementById('bravepop_element_lightbox_content'); 
+   if(!bravelightbox){return console.warn('Lightbox Html Div not found in the page.');}
    if(contentType === 'image' && bravelightboxContent){ bravelightboxContent.innerHTML = '<img src="'+content+'" />';bravelightbox.classList.add('bravepop_element_lightbox--open');}
+   if(contentType === 'html' && content){ 
+      bravelightboxContent.innerHTML = content;
+      bravelightbox.classList.add('bravepop_element_lightbox--html');
+      bravelightbox.classList.add('bravepop_element_lightbox--open');
+   }
 }
 function brave_lightbox_close(){
    var bravelightbox = document.getElementById('bravepop_element_lightbox');  var bravelightboxContent = document.getElementById('bravepop_element_lightbox_content'); 
-   if(bravelightbox && bravelightboxContent){ bravelightbox.classList.remove('bravepop_element_lightbox--open'); bravelightboxContent.innerHTML = ''; }
+   if(bravelightbox && bravelightboxContent){ 
+      bravelightbox.classList.remove('bravepop_element_lightbox--open');
+      bravelightbox.classList.remove('bravepop_element_lightbox--html'); 
+      bravelightboxContent.innerHTML = ''; 
+   }
 }
 
 function brave_responsiveness(event, popupID, popupData){
