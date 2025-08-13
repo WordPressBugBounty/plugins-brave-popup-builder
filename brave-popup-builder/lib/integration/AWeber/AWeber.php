@@ -15,7 +15,7 @@ if ( ! class_exists( 'BravePop_Aweber' ) ) {
 
       public function get_accountID($access_token){
          $accountID = get_option('_bravepop_aweber_accountID');
-         if(!empty($accountID)){ return $accountID; }
+         if(!empty($accountID)){ return array( 'success' => true, 'accountID' => $accountID ); }
          //First Get the AccountID
          $headerArgs = array( 'headers' => array(  'Authorization' => 'Bearer ' . $access_token ) );
          $response = wp_remote_get( 'https://api.aweber.com/1.0/accounts', $headerArgs );
@@ -57,9 +57,14 @@ if ( ! class_exists( 'BravePop_Aweber' ) ) {
       public function get_lists($refresh_token=''){
          $refresh_token  = $refresh_token ? $refresh_token : $this->refresh_token;
          $access_token  = $this->get_access_token($refresh_token); 
-         $accountID = $this->get_accountID($access_token);
+         $accountIDObj = $this->get_accountID($access_token);
+
+         if(!$accountIDObj['success'] || !isset($accountIDObj['accountID'])){ 
+            return false; // Bail early if account ID is not available
+         }
+
          $headerArgs = array( 'headers' => array(  'Authorization' => 'Bearer ' . $access_token ) );
-         $lresponse = wp_remote_get( 'https://api.aweber.com/1.0/accounts/'.$accountID.'/lists', $headerArgs );
+         $lresponse = wp_remote_get( 'https://api.aweber.com/1.0/accounts/'.$accountIDObj['accountID'].'/lists', $headerArgs );
 
          if( is_wp_error( $lresponse ) ) {
             return false; // Bail early
@@ -147,8 +152,7 @@ if ( ! class_exists( 'BravePop_Aweber' ) ) {
             $body = wp_remote_retrieve_body( $response );
             $data = json_decode( $body );
 
-            //error_log(wp_json_encode($response));
-            if(isset($data->error->message)){ error_log($data->error->message); }
+            // if(isset($data->error->message)){ error_log('Error Object: '. $data->error->message); }
 
             if((isset($response['response']['code']) && $response['response']['code'] === 201)){
                $addedData = array(

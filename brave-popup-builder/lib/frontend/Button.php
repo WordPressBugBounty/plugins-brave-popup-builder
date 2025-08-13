@@ -104,7 +104,7 @@ if ( ! class_exists( 'BravePop_Element_Button' ) ) {
          $eventLabel = isset($this->data->action->trackData->eventLabel) ? $this->data->action->trackData->eventLabel : '';
          //url, dynamic, close, call, step, javascript
          $actionInlineTrack = $track ? 'brave_send_ga_event(\''.$eventCategory.'\', \''.$eventAction.'\', \''.$eventLabel.'\');':'';
-         $goalAction = $this->goalItem ? 'brave_complete_goal('.$this->popupID.', \'click\');"':'';
+         $goalAction = $this->goalItem ? 'brave_complete_click_goal(event, '.$this->popupID.', \'click\', this);"':'';
          $closeAfter = $closeAfterClick ? 'brave_close_popup(\''.$this->popupID.'\', \''.$this->stepIndex.'\'); ':'';
          $actionJS = $actionType === 'javascript' && isset($this->data->action->actionData->javascript) ? 'onclick="'.$this->data->action->actionData->javascript.' '.$actionInlineTrack.' '.$goalAction.$closeAfter.'"': '';
 

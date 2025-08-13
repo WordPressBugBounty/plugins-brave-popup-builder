@@ -83,7 +83,7 @@ if ( ! class_exists( 'BravePop_Element_Image' ) ) {
          $customAnim = !empty($this->data->action->play_animation) && isset($this->data->action->custom_animation) ? 'brave_animate_popup(null, '.$this->popupID.', '.$this->stepIndex.', \''.$this->data->action->custom_animation.'\');':'';
          $actionTrack = ($actionType !== 'step' || $actionType !== 'close') && $track && $clickable ? ' onclick="brave_send_ga_event(\''.$eventCategory.'\', \''.$eventAction.'\', \''.$eventLabel.'\');'.$customAnim.'"':'';
          $actionInlineTrack = ($actionType === 'step' || $actionType === 'close') && $track && $clickable ? ' brave_send_ga_event(\''.$eventCategory.'\', \''.$eventAction.'\', \''.$eventLabel.'\');'.$customAnim.'':'';
-         $goalAction = $this->goalItem ? 'brave_complete_goal('.$this->popupID.', \'click\');"':'';
+         $goalAction = $this->goalItem ? 'brave_complete_click_goal(event, '.$this->popupID.', \'click\', this);"':'';
          $closeAfterClick = ($actionType === 'dynamic' ||$actionType === 'url' || $actionType === 'call'|| $actionType === 'javascript') && !empty($this->data->action->actionData->closeAfter) ? true : false;
          $closeAfter = $closeAfterClick ? 'brave_close_popup(\''.$this->popupID.'\', \''.$this->stepIndex.'\'); ':'';
 

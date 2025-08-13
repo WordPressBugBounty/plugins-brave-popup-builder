@@ -1928,7 +1928,7 @@ function brave_play_video(popupID, elmentID, videoType, track=null, inline=false
    
 }
 
-function brave_complete_goal(popupID, goalType='view', auto=false){
+function brave_complete_goal(popupID, goalType='view', auto=false, callback=null){
    if(window.location.href.includes('brave_popup') === false && !brave_popup_data[popupID].goaled){ 
       var goalDate = new Date(); var goalYear = goalDate.getFullYear(); var goalMonth = brave_number_padding(goalDate.getMonth() + 1);  var goalDay = brave_number_padding(goalDate.getDate()); 
       var goalData = { 
@@ -1946,7 +1946,34 @@ function brave_complete_goal(popupID, goalType='view', auto=false){
          action: 'bravepop_ajax_popup_complete_goal' 
       };
 
-      brave_ajax_send(bravepop_global.ajaxURL, goalData, function(status, sentData){   brave_popup_data[popupID].goaled = true; console.log('Goal Complete!!!!!!', sentData);  });
+      var beaconSent = false;
+      if (navigator.sendBeacon) {
+         try {
+            var formData = new FormData();
+            Object.keys(goalData).forEach(function(key) {
+               formData.append(key, goalData[key]);
+            });
+            beaconSent = navigator.sendBeacon(bravepop_global.ajaxURL, formData);
+            if (beaconSent) {
+               brave_popup_data[popupID].goaled = true;
+               if (callback && typeof callback === 'function') {
+                  callback();
+               }
+            }
+         } catch (error) {
+            beaconSent = false;
+         }
+      }
+      
+      // Fallback to regular AJAX if Beacon API is not available or failed
+      if (!beaconSent) {
+         brave_ajax_send(bravepop_global.ajaxURL, goalData, function(status, sentData){   
+            brave_popup_data[popupID].goaled = true; 
+            if (callback && typeof callback === 'function') {
+               callback();
+            }
+         });
+      }      
       localStorage.setItem('brave_popup_'+popupID+'_goal_complete', goalData.goalTime);
       var braveGoalCompletEvent = new CustomEvent('brave_goal_complete', { detail: {popupId: parseInt(popupID, 10), goalType: goalType} });
       document.dispatchEvent(braveGoalCompletEvent);
@@ -1956,6 +1983,22 @@ function brave_complete_goal(popupID, goalType='view', auto=false){
             brave_send_ga_event('popup', 'goal', brave_popup_data[popupID].title+' ('+popupID+')' || popupID);
          }, 2000);
       }
+   }
+}
+
+function brave_complete_click_goal(event, popupID, goalType, linkElement) {
+   if (linkElement.href && linkElement.href !== '#' && linkElement.href !== 'javascript:void(0)') {
+      event.preventDefault();
+      
+      brave_complete_goal(popupID, goalType, false, function() {
+         if (linkElement.target === '_blank') {
+            window.open(linkElement.href, '_blank');
+         } else {
+            window.location.href = linkElement.href;
+         }
+      });
+   } else {
+      brave_complete_goal(popupID, goalType, false);
    }
 }
 
