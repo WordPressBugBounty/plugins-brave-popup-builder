@@ -3424,7 +3424,7 @@ msgstr ""
 #: src/admin/popups/editor/builder/Sidebar/Settings/ButtonSettings.js:251
 #: src/admin/popups/editor/builder/Sidebar/Settings/GroupSettings.js:86
 #: src/admin/popups/editor/builder/Sidebar/Settings/ShapeSettings.js:263
-#: src/admin/popups/editor/fields/ClickActionsField.js:322
+#: src/admin/popups/editor/fields/ClickActionsField.js:323
 msgid "Hover Animation"
 msgstr ""
 
@@ -4394,7 +4394,7 @@ msgid "Enable"
 msgstr ""
 
 #: src/admin/popups/editor/fields/AnimationField.js:373
-#: src/admin/popups/editor/fields/ClickActionsField.js:413
+#: src/admin/popups/editor/fields/ClickActionsField.js:414
 msgid "Animation Type"
 msgstr ""
 
@@ -4418,79 +4418,79 @@ msgstr ""
 msgid "Image Zoom"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:181
+#: src/admin/popups/editor/fields/ClickActionsField.js:182
 msgid "Select a Step"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:184
+#: src/admin/popups/editor/fields/ClickActionsField.js:185
 msgid "Step "
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:189
+#: src/admin/popups/editor/fields/ClickActionsField.js:190
 msgid "Select a Product"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:212
+#: src/admin/popups/editor/fields/ClickActionsField.js:213
 msgid "Click Action"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:222
+#: src/admin/popups/editor/fields/ClickActionsField.js:223
 msgid "Custom URL:"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:232
+#: src/admin/popups/editor/fields/ClickActionsField.js:233
 msgid "Phone Number"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:246
+#: src/admin/popups/editor/fields/ClickActionsField.js:247
 msgid "Link Rel Attribute"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:280
+#: src/admin/popups/editor/fields/ClickActionsField.js:281
 msgid "Select Product"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:290
+#: src/admin/popups/editor/fields/ClickActionsField.js:291
 msgid "Step:"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:303
+#: src/admin/popups/editor/fields/ClickActionsField.js:304
 msgid "You only have One Step. Please add More steps to link to them."
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:310
+#: src/admin/popups/editor/fields/ClickActionsField.js:311
 msgid "Javascript Function:"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:333
+#: src/admin/popups/editor/fields/ClickActionsField.js:334
 msgid "Coupon Code:"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:344
+#: src/admin/popups/editor/fields/ClickActionsField.js:345
 msgid "After Applying Coupon: "
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:354
+#: src/admin/popups/editor/fields/ClickActionsField.js:355
 msgid "After Coupon applied, go to Step:"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:358
+#: src/admin/popups/editor/fields/ClickActionsField.js:359
 msgid "Select Step"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:376
+#: src/admin/popups/editor/fields/ClickActionsField.js:377
 msgid "Open in New Window"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:385
+#: src/admin/popups/editor/fields/ClickActionsField.js:386
 msgid "Download on Click"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:394
+#: src/admin/popups/editor/fields/ClickActionsField.js:395
 msgid "Close After Click"
 msgstr ""
 
-#: src/admin/popups/editor/fields/ClickActionsField.js:402
+#: src/admin/popups/editor/fields/ClickActionsField.js:403
 msgid "Play Animation on Click"
 msgstr ""
 

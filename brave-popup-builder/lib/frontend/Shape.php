@@ -68,10 +68,11 @@ if ( ! class_exists( 'BravePop_Element_Shape' ) ) {
          $actionCall = ($actionType === 'call') && $actionPhone ? 'onclick="'.$goalAction.$closeAfter.'" href="tel:'.$actionPhone.'"':'';
          $actionStep = $clickable && $actionType === 'step' && $actionStepNum >=0 ? 'onclick="brave_action_step('.$this->popupID.', '.$this->stepIndex.', '.$actionStepNum.'); '.$actionInlineTrack.' '.$goalAction.' "':'';
          $actionClose = $clickable && $actionType === 'close' ? 'onclick="brave_close_popup(\''.$this->popupID.'\', \''.$this->stepIndex.'\'); '.$actionInlineTrack.' '.$goalAction.'"':'';
+         $actionReload = $actionType === 'reload' ? 'onclick="window.location.reload(); '.$actionInlineTrack.' '.$goalAction.'"':'';
          $noActionAnim = $customAnim && $clickable && $actionType === 'none' ? 'onclick="'.$customAnim.'"' :'';
 
          $html = new stdClass();
-         $html->start = '<a class="brave_element__inner_link" '.$actionLink.' '.$actionCall.' '.$actionDownload.' '.$actionStep . $actionClose. $actionTrack. $actionJS.$noActionAnim.'>';
+         $html->start = '<a class="brave_element__inner_link" '.$actionLink.' '.$actionCall.' '.$actionDownload.' '.$actionStep . $actionClose. $actionReload. $actionTrack. $actionJS.$noActionAnim.'>';
          $html->end = '</a>';
 
          return $html;

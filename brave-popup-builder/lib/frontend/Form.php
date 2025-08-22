@@ -408,6 +408,8 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
                $fieldHTML .= '<div class="brave_form_field_error"></div>';
                if(isset($field->validation) && $field->validation === 'email'){
                   $fieldHTML .= '<input type="email" placeholder="'.esc_attr($placeholder).'"  name="'.esc_attr($firstname).'" '.($defaultValue).' class="'.($newsletter_email_field === $field->id ? 'brave_newsletter_emailField' : '').'" '.$condtionCheckAction.' />';
+               }else if(isset($field->validation) && $field->validation === 'phone'){
+                  $fieldHTML .= '<input type="tel" placeholder="'.esc_attr($placeholder).'"  name="'.esc_attr($firstname).'" '.($defaultValue).' '.$condtionCheckAction.' />';
                }else{
                   $fieldHTML .= '<input type="text" placeholder="'.esc_attr($placeholder).'"  name="'.esc_attr($firstname).'" '.($defaultValue).' class="'.($newsletter_name_field === $field->id ? 'brave_newsletter_nameField' : '').'" '.$condtionCheckAction.' />';
                }

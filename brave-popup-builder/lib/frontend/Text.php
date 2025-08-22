@@ -126,9 +126,10 @@ if ( ! class_exists( 'BravePop_Element_Text' ) ) {
          $actionStep = $clickable && $actionType === 'step' && $actionStepNum >=0 ? 'onclick="brave_action_step('.$this->popupID.', '.$this->stepIndex.', '.$actionStepNum.'); '.$actionInlineTrack.' '.$goalAction.'"':'';
          $actionClose = $clickable && $actionType === 'close' ? 'onclick="brave_close_popup(\''.$this->popupID.'\', \''.$this->stepIndex.'\'); '.$actionInlineTrack.' '.$goalAction.'"':'';
          $actionCopy = $clickable && $actionType === 'copy' ? 'onclick="brave_copy_to_clipboard(\''.$this->data->id.'\', \''.__('Copied to Clipboard','bravepop').'\', \''.(!empty($this->data->copyTextPos) ? $this->data->copyTextPos : 'bottom').'\'); '.$actionInlineTrack.' '.$goalAction.'"':'';
-         
+         $actionReload = $actionType === 'reload' ? 'onclick="window.location.reload(); '.$actionInlineTrack.' '.$goalAction.'"':'';
+
          $html = new stdClass();
-         $html->start = '<a class="brave_element__inner_link" '.$actionLink.' '.$actionCall.' '.$actionDownload.' '.$actionStep . $actionClose. $actionTrack.$actionJS.$actionCopy.'>';
+         $html->start = '<a class="brave_element__inner_link" '.$actionLink.' '.$actionCall.' '.$actionDownload.' '.$actionStep . $actionClose . $actionReload . $actionTrack.$actionJS.$actionCopy.'>';
          $html->end = '</a>';
 
          return $html;

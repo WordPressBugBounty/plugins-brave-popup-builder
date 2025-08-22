@@ -3,7 +3,7 @@ Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
 Tested up to: 6.8.2
-Stable tag: 0.8.1
+Stable tag: 0.8.2
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -118,6 +118,13 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.8.2 - 22 Aug 2025. =
+* Fixed: Newsletter form Settings could not be accessed.
+* Fixed: Form Phone Field Validation.
+* Fixed: Minor CSS issues.
+* Added: Ability to reload page on Button Click.
+
+
 = 0.8.1 - 13 Aug 2025. =
 * Fixed: The Newsletter Plugin Integration.
 * Fixed: Broken AWeber Integration.

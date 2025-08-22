@@ -440,6 +440,10 @@ function brave_get_field_vals(braveForm, fieldOpts, quiz){
          fieldsData[fieldName].value = fieldValue;
       }
 
+      if(fieldOpts && fieldOpts.type && fieldOpts.type ==='input' && fieldOpts.validation ==='phone'){
+         fieldsData[fieldName].value = fieldValue.replace(/[\s\-()]/g, ""); //clean phone numbers by removing hyphnes and brackets
+      }
+
       //If the Field is only set to show conditionally, and the condition does not need to match, set the required to false
       if(fieldsData[fieldName] && fieldsData[fieldName].required && document.getElementById('brave_form_field'+fieldName).classList.contains('brave_form_field--hasCondition')){
          fieldsData[fieldName].required = false;
@@ -800,6 +804,15 @@ function brave_validate_fields(fieldID, field){
          return {id: fieldID, type: 'invalid', message: bravepop_global.invalid_number};
       }
    }
+
+   //Validate Phone Numbers
+   if(field.value && field.type==='input' && field.validation === 'phone' ) { 
+      const phoneRegex = /^\+?[0-9]{10,15}$/;
+      if(!phoneRegex.test(field.value)){
+         return {id: fieldID, type: 'invalid', message: bravepop_global.invalid_phone};
+      }
+   }
+
    //Validate url
    if(field.value && field.type==='input' && field.validation === 'url' ) { 
       if(brave_isURL(field.value) === false){
