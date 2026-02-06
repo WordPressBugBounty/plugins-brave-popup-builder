@@ -719,6 +719,48 @@ function brave_submit_form(event, settings, supressErrors=false){
                });
             }else{ console.error('Google Recaptcha Failed! Could not Fetch Token!'); }
         });
+      }else if(settings.turnstile && typeof turnstile !== 'undefined'){
+         // Cloudflare Turnstile - check if widget already exists
+         var turnstileContainer = document.getElementById('brave-turnstile-'+settings.formID);
+         if(!turnstileContainer){
+            turnstileContainer = document.createElement('div');
+            turnstileContainer.id = 'brave-turnstile-'+settings.formID;
+            turnstileContainer.className = 'brave-turnstile-widget';
+            brave_form.appendChild(turnstileContainer);
+         }
+         
+         // Render Turnstile widget
+         turnstile.render('#brave-turnstile-'+settings.formID, {
+            sitekey: settings.turnstile,
+            callback: function(token) {
+               if(token){
+                  var turnstileData = { token: token, security: security, action: 'bravepopup_validate_turnstile' };
+                  brave_ajax_send(ajaxurl, turnstileData, function(status, valid){
+                     console.log('Cloudflare Turnstile Verified!');
+                     // Remove the widget after validation
+                     if(turnstileContainer){ turnstileContainer.remove(); }
+                     if(valid === 'true'){
+                        if(bravepop_emailValidation && emailFields.length > 0){
+                           braveSubmitWithEmailValidation();
+                        }else{
+                           braveSubmitForm();
+                        }
+                     }else{
+                        console.error('Cloudflare Turnstile Failed! Spammer Detected!');
+                        if(brave_form){ brave_form.classList.remove('brave_form_form--loading'); }
+                     }
+                  });
+               }else{ 
+                  console.error('Cloudflare Turnstile Failed! Could not Fetch Token!'); 
+                  if(brave_form){ brave_form.classList.remove('brave_form_form--loading'); }
+               }
+            },
+            'error-callback': function() {
+               console.error('Cloudflare Turnstile Error!');
+               if(turnstileContainer){ turnstileContainer.remove(); }
+               if(brave_form){ brave_form.classList.remove('brave_form_form--loading'); }
+            }
+         });
       }else{
          if(bravepop_emailValidation && emailFields.length > 0){
             braveSubmitWithEmailValidation();

@@ -479,6 +479,48 @@ function bravepopup_validate_recaptcha(){
 }
 
 
+add_action('wp_ajax_bravepopup_validate_turnstile', 'bravepopup_validate_turnstile', 0);
+add_action('wp_ajax_nopriv_bravepopup_validate_turnstile', 'bravepopup_validate_turnstile');
+
+function bravepopup_validate_turnstile(){
+   if(!isset($_POST['token']) ){ wp_die(); }
+
+   $securityPassed = check_ajax_referer('brave-ajax-form-nonce', 'security', false);
+
+   if($securityPassed === false) {
+      print_r(wp_json_encode(false));
+      wp_die();
+   }else{
+      $currentSettings = get_option('_bravepopup_settings');
+      $currentIntegrations = $currentSettings && isset($currentSettings['integrations']) ? $currentSettings['integrations'] : array() ;
+      $turnstile_secret = isset($currentIntegrations['turnstile']->secret)  ? $currentIntegrations['turnstile']->secret  : '';
+      $response = $_POST['token']; $user_ip = bravepop_getVisitorIP();
+      $args = array(
+         'method' => 'POST',
+         'body' => array('secret'=> $turnstile_secret, 'response'=> $_POST['token'], 'remoteip'=> bravepop_getVisitorIP() )
+      );
+
+      $fieldsResponse = wp_remote_post( 'https://challenges.cloudflare.com/turnstile/v0/siteverify', $args );
+
+      if( !is_wp_error( $fieldsResponse ) ) {
+         $response_body = json_decode( $fieldsResponse['body'] );
+
+         if ( !empty( $response_body->success ) ) {
+            print_r(wp_json_encode(true));
+            wp_die();
+         }else{
+            print_r(wp_json_encode(false));
+            wp_die();
+         }
+      }else{
+         print_r(wp_json_encode(false));
+         wp_die();
+      }
+   }
+   wp_die();
+}
+
+
 function bravepop_replace_emailShortcodes($message, $fieldValues, $userQuizData=null, $encode=false){
    $finalMessage = $message;
    $formFieldKeyVals = '';

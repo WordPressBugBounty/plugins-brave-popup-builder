@@ -16,6 +16,7 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
       protected $totalSteps = 0;
       protected $changesFormHeight = false;
       protected $recaptcha = false;
+      protected $turnstile = false;
       protected $formHeightData;
       protected $wrappedSteps = 1;
       protected $goalItem;
@@ -68,6 +69,13 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
             $this->recaptcha = $reCAPTCHA_site_key;
             add_action( 'wp_footer', array( $this, 'enqueue_recaptcha_js' ), 10 );
          }
+         if(!empty($this->formData->settings->action->turnstile) && class_exists( 'BravePop_Geolocation' ) ){
+            $currentSettings = get_option('_bravepopup_settings');
+            $currentIntegrations = $currentSettings && isset($currentSettings['integrations']) ? $currentSettings['integrations'] : array() ;
+            $turnstile_site_key = isset($currentIntegrations['turnstile']->api)  ? $currentIntegrations['turnstile']->api  : '';
+            $this->turnstile = $turnstile_site_key;
+            add_action( 'wp_footer', array( $this, 'enqueue_turnstile_js' ), 10 );
+         }
          if($this->social_optin && $this->social_settings && class_exists( 'BravePop_Geolocation' ) ) {
             add_action( 'wp_footer', array( $this, 'enqueue_social_optin_js' ), 10 );
          }
@@ -103,6 +111,12 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
       public function enqueue_recaptcha_js( $hook ) {
          if($this->recaptcha){
             wp_enqueue_script( 'brave_recaptcha_js', 'https://www.google.com/recaptcha/api.js?render='.$this->recaptcha ,'','',true);
+         }
+      }
+
+      public function enqueue_turnstile_js( $hook ) {
+         if($this->turnstile){
+            wp_enqueue_script( 'brave_turnstile_js', 'https://challenges.cloudflare.com/turnstile/v0/api.js' ,'','',true);
          }
       }
 
@@ -239,6 +253,7 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
                   heightData: <?php print_r(wp_json_encode($this->formHeightData)); ?>,
                   goal: <?php print_r(wp_json_encode($this->goalItem)); ?>,
                   recaptcha: <?php print_r(wp_json_encode(!empty($this->recaptcha) ? $this->recaptcha : false )); ?>,
+                  turnstile: <?php print_r(wp_json_encode(!empty($this->turnstile) ? $this->turnstile : false )); ?>,
                   social_optin: <?php print_r(wp_json_encode(!empty($this->social_optin) ? $this->social_optin : false )); ?>,
                   totalSteps: <?php print_r($this->totalSteps) ?>,
                   quiz: <?php print_r(wp_json_encode(isset($this->formData->settings->options->type) && $this->formData->settings->options->type === 'quiz' ? true : false)); ?>,

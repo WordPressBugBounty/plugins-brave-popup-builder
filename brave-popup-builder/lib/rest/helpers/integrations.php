@@ -240,7 +240,7 @@ function bravepop_update_captcha_integrations( $integrations ){
    $updatedIntegrations = $currentIntegrations;
 
    $decodedIntegration = json_decode($integrations);
-   if(isset($decodedIntegration->service) && $decodedIntegration->service === 'recaptcha'){
+   if(isset($decodedIntegration->service) && ($decodedIntegration->service === 'recaptcha' || $decodedIntegration->service === 'turnstile')){
       $validateIntegration = true;
 
       if($validateIntegration){

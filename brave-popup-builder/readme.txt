@@ -1,19 +1,19 @@
-=== Brave - Create Popup, Optins, Lead Generation, Survey, Sticky Elements & Interactive Content ===
+=== Brave Popup Builder - Popup, Optins, Lead Generation, Survey & Interactive Content ===
 Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
-Tested up to: 6.8.2
-Stable tag: 0.8.2
+Tested up to: 6.9
+Stable tag: 0.8.5
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Drag n Drop builder to create any kind of popups or conversion widgets. Create popups, optins, lead generation, Woocommerce popups & start Converting.
+The best drag-and-drop Popup Builder for WordPress. Create Popups, exit-intent popups, slide-ins, and lead generation forms & Woocommerce popups in minutes..
 
 
 
 == Description ==
-**Brave Builder** is the most powerful and intuitive Conversion widget builder for WordPress. You can visually create popups, lead generation forms, sitckybars, sidebars in minutes and convert your visitors like there's no tomorrow.
+**Brave Popup Builder** is the most powerful WordPress popup plugin for creating popups, lead generation forms, sitckybars, sidebars in minutes and converting your visitors like there's no tomorrow.
 
 [Brave Website](https://getbrave.io/)  |  [Sample Popups & Widgets](https://getbrave.io/popups)   |  [Docs](https://getbrave.io/brave-documentation)
 
@@ -118,6 +118,19 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.8.5 - 26 Jan 2026. =
+* Added: Ability to Search Newlsetter list item in Newsletter dropdown field.
+
+
+
+= 0.8.4 - 1 Dec 2025. =
+* Fixed: Draft Popup Content could be loaded by anyone using custom Javascript. (CVSS 5.3)
+
+
+= 0.8.3 - 25 Nov 2025. =
+* Fixed: ActiveCampaign Subscription Issue.
+
+
 = 0.8.2 - 22 Aug 2025. =
 * Fixed: Newsletter form Settings could not be accessed.
 * Fixed: Form Phone Field Validation.
