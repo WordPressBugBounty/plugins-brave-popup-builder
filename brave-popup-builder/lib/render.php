@@ -10,8 +10,11 @@ function bravepop_render_popup() {
    $brave_popupStep = filter_input(INPUT_GET, 'popup_step');
 
    //Popup Preview
-   if($brave_popupID && is_user_logged_in()){ 
-      return new BravePop_Popup( $brave_popupID, 'popup', true, $brave_popupStep  ? absint($brave_popupStep) : false); 
+   if($brave_popupID && is_user_logged_in() && current_user_can('access_brave_menus')){
+      $popupID = absint($brave_popupID);
+      $popup = get_post($popupID);
+      if(!$popup || $popup->post_type !== 'popup'){ return; }
+      return new BravePop_Popup( $popupID, 'popup', true, $brave_popupStep  ? absint($brave_popupStep) : false);
    }
 
    //Bail if is Customizing the Website from Appearance > Customize or with Elementor

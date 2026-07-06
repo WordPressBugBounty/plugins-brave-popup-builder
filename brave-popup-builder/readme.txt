@@ -1,9 +1,9 @@
-=== Brave Popup Builder - Popup, Optins, Lead Generation, Survey & Interactive Content ===
+=== Brave - Create Popup, Optins, Lead Generation, Survey, Sticky Elements & Interactive Content ===
 Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
-Tested up to: 6.9
-Stable tag: 0.8.5
+Tested up to: 7.0
+Stable tag: 0.8.6
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -118,6 +118,11 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.8.6 - 6 Jul 2026. =
+* Fixed: Resolves broken access control vulenrablity in Popup Previews. Reported by Huseyin Mertoglu.
+* Fixed: Resolves XSS vulenrabilty in forms elements via UTM. Reported by Huseyin Mertoglu.
+
+
 = 0.8.5 - 26 Jan 2026. =
 * Added: Ability to Search Newlsetter list item in Newsletter dropdown field.
 
