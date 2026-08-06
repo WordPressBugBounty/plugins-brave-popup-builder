@@ -2,8 +2,8 @@
 Contributors: getbrave
 Tags: popup, wordpress popup, popups, woocommerce popup, lead generation
 Requires at least: 5.2
-Tested up to: 7.0
-Stable tag: 0.8.6
+Tested up to: 7.0.2
+Stable tag: 0.8.7
 Requires PHP: 7.2.24
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -118,6 +118,10 @@ The PRO version lets you create unlimited steps that you can link to each other 
 
 
 == Changelog ==
+= 0.8.7 - 6 Aug 2026. =
+* Fixed: Resolves XSS vulnerability issue in license admin notice.
+
+
 = 0.8.6 - 6 Jul 2026. =
 * Fixed: Resolves broken access control vulenrablity in Popup Previews. Reported by Huseyin Mertoglu.
 * Fixed: Resolves XSS vulenrabilty in forms elements via UTM. Reported by Huseyin Mertoglu.

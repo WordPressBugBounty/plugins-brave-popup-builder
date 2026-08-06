@@ -66,7 +66,7 @@ if ( ! class_exists( 'BravePopup_Review_Notice' ) ) {
          ?>
          
             <div id="bravepop-review-notice" class="notice notice-success is-dismissible" style="margin-top:30px; font-weight: 600; font-size: 15px;">
-               <p style="font-size: 15px;"><?php echo esc_html( $icon.' '.$messages ); ?></p>
+               <p style="font-size: 15px;"><?php echo $icon . ' ' . esc_html( $messages ); ?></p>
                <p class="actions">
                   <a id="bravepop-rate" onclick="bravePop_review_submit('rated')" href="https://wordpress.org/support/plugin/brave-popup-builder/reviews/#new-post" target="_blank" class="button button-primary bravepop-review-button"><span class="dashicons dashicons-yes" style="position: relative; top: 4px; margin-left: -8px; width: 20px; height: 20px;"></span> <?php echo esc_html($rateBtn);?></a>
                   <a id="bravepop-no-rate" href="#" onclick="bravePop_review_submit('not_rated')" style="margin-left:10px"><?php echo esc_html($cancelBtn);?></a>
