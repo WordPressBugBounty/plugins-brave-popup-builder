@@ -453,7 +453,7 @@ if ( ! class_exists( 'BravePop_Element_Form' ) ) {
          }
 
          $fieldHTML = '<div id="brave_form_field'.$field->id.'" class="brave_form_field brave_form_field--hidden">';
-            $fieldHTML .= '<input type="hidden"  name="'.esc_attr($field->id).'" value="'.esc_attr(do_shortcode($defaultValue)).'" />';
+            $fieldHTML .= '<input type="hidden"  name="'.esc_attr($field->id).'" value="'.esc_attr($defaultValue).'" />';
          $fieldHTML .= '</div>';
 
         return  $fieldHTML;

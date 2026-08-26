@@ -1122,9 +1122,11 @@ class BravePop_Rest_Server extends WP_REST_Controller {
       
       $deleted  = false;
       if($entryIDs){
-         $ids = implode( ',', array_map( 'absint', json_decode($entryIDs )) );
-         $submissionClass =  new BravePop_Submissions();
-         $deleted = $submissionClass->deleteSubmissions( $ids );
+         $ids = json_decode( $entryIDs, true );
+         if( is_array($ids) ){
+            $submissionClass =  new BravePop_Submissions();
+            $deleted = $submissionClass->deleteSubmissions( $ids );
+         }
       }
       return new WP_REST_Response($deleted);
    }
